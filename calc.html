@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calcolatrice</title>
+</head>
+<body>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #720000;
+
+
+        }
+        #calc{
+            margin: 10px;
+            padding: 20px;
+            border: 2px solid #999;
+            text-align: center;
+            border-radius: 5px;
+            background-color: #fff;
+            
+        }
+        button{
+            width: 30px;
+            height: 30px;
+        }
+
+        input{
+            height: 20;
+        }
+    </style>
+    <div id="calc">
+    <input type="text" id="n1" value=""><br><br>
+    <button onclick="somma()">+</button>
+    <button onclick="diff()">-</button>
+    <button onclick="molt()">*</button>
+    <button onclick="divisione()">/</button><br><br>
+    <input type="text" id="n2" value=""><br><br>
+    <p id="risultato"></p>
+
+</div>
+
+
+    <script>
+        function somma(n1, n2){
+            var n1 = parseFloat(document.getElementById("n1").value);
+            var n2 = parseFloat(document.getElementById("n2").value);
+            var somma = n1+n2;
+            document.getElementById("risultato").innerHTML = somma;
+        }
+
+        function diff(n1, n2){
+            var n1 = document.getElementById("n1").value;
+            var n2 = document.getElementById("n2").value;
+            var diff = n1-n2;
+            document.getElementById("risultato").innerHTML = diff;
+        }
+
+        function molt(n1, n2){
+            var n1 = document.getElementById("n1").value;
+            var n2 = document.getElementById("n2").value;
+            var molt = n1*n2;
+            document.getElementById("risultato").innerHTML = molt;
+        }
+
+        function divisione(n1, n2){
+            var n1 = document.getElementById("n1").value;
+            var n2 = document.getElementById("n2").value;
+            var div = n1/n2;
+            document.getElementById("risultato").innerHTML = div;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Calcolatrice completa</title>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #720000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #calc-container {
+      width: 300px;
+      padding: 20px;
+      border: 2px solid #999;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      background-color: #f9f9f9;
+    }
+
+    #display {
+      margin-bottom: 10px;
+      padding: 15px;
+      font-size: 20px;
+      width: 100%;
+      border: 2px solid #999;
+      box-sizing: border-box;
+    }
+
+    .button-row {
+      display: flex;
+    }
+
+    .calc-button {
+      flex: 1;
+      margin: 1px;
+      padding: 15px;
+      font-size: 18px;
+      text-align: center;
+      cursor: pointer;
+      border: 2px solid #999;
+      background-color: #f2f2f2;
+      transition: background-color 0.3s;
+    }
+    
+
+    .calc-button.operator {
+      background-color: #720000;
+      color: #fff;
+    }
+
+    .calc-button.operator:hover {
+      background-color: #555;
+    }
+
+    .calc-button.equal {
+      flex: 3.2;
+      color: #fff;
+      background-color: #000000;
+
+    }
+
+  </style>
+</head>
+<body>
+
+
+<div id="calc-container">
+    <input type="text" id="display" disabled>
+    
+    <div class="button-row">
+        <button class="calc-button" onclick="clearDisplay()">C</button>
+        <button class="calc-button" onclick="calculateSquare()">X²</button>
+        <button class="calc-button" onclick="calculateSquareRoot()">√</button>
+        <button class="calc-button operator" onclick="setOperator('/')">÷</button>
+    </div>
+    
+    <div class="button-row">
+        <button class="calc-button" onclick="addNumber('7')">7</button>
+        <button class="calc-button" onclick="addNumber('8')">8</button>
+        <button class="calc-button" onclick="addNumber('9')">9</button>
+        <button class="calc-button operator" onclick="setOperator('*')">×</button>
+    </div>
+    
+    <div class="button-row">
+        <button class="calc-button" onclick="addNumber('4')">4</button>
+        <button class="calc-button" onclick="addNumber('5')">5</button>
+        <button class="calc-button" onclick="addNumber('6')">6</button>
+        <button class="calc-button operator" onclick="setOperator('-')">-</button>
+    </div>
+    
+    <div class="button-row">
+        <button class="calc-button" onclick="addNumber('1')">1</button>
+        <button class="calc-button" onclick="addNumber('2')">2</button>
+        <button class="calc-button" onclick="addNumber('3')">3</button>
+        <button class="calc-button operator" onclick="setOperator('+')">+</button>
+    </div>
+    
+    <div class="button-row">
+        <button class="calc-button" onclick="addNumber('0')">0</button>
+        <button class="calc-button" onclick="addDecimal()">.</button>
+        <button class="calc-button equal" onclick="performCalculation()">=</button>
+    </div>
+  </div>
+
+<script>
+  let displayValue = '';
+  let operator = '';
+  let firstOperand = '';
+
+  function addNumber(number) {
+    displayValue += number;
+    document.getElementById('display').value = displayValue;;
+  }
+
+  function setOperator(op) {
+    if (firstOperand === '') {
+      firstOperand = displayValue;
+      displayValue = '';
+      operator = op;
+      document.getElementById('display').value = displayValue;;
+    }
+  }
+
+  function clearDisplay() {
+    displayValue = '';
+    firstOperand = '';
+    operator = '';
+    document.getElementById('display').value = displayValue;;
+  }
+
+  //Esegue il calcolo data l'operatore
+  function performCalculation() {
+    if (operator && firstOperand && displayValue) {
+      const num1 = parseFloat(firstOperand);
+      const num2 = parseFloat(displayValue);
+      switch (operator) {
+        case '+':
+          displayValue = num1 + num2;
+          break;
+        case '-':
+          displayValue = num1 - num2;
+          break;
+        case '*':
+          displayValue = num1 * num2;
+          break;
+        case '/':
+          if (num2 !== 0) {
+            displayValue = num1 / num2;
+          } else {
+            displayValue = 'Errore';
+          }
+          break;
+        default:
+          displayValue = 'Errore';
+      }
+      document.getElementById('display').value = displayValue;;
+      firstOperand = '';
+      operator = '';
+    }
+  }
+
+  //quadrato
+  function calculateSquare() {
+    if (displayValue !== '') {
+      const num = parseFloat(displayValue);
+      displayValue = num * num;
+      document.getElementById('display').value = displayValue;;
+    }
+  }
+
+  // radice
+  function calculateSquareRoot() {
+    if (displayValue !== '') {
+      const num = parseFloat(displayValue);
+      if (num >= 0) {
+        displayValue = Math.sqrt(num);
+      } else {
+        displayValue = 'Errore';
+      }
+      document.getElementById('display').value = displayValue;;
+    }
+  }
+
+  // decimali
+  function addDecimal() {
+    if (displayValue.indexOf('.') === -1) {
+      displayValue += '.';
+      document.getElementById('display').value = displayValue;;
+    }
+  }
+
+
+</script>
+
+</body>
+</html>

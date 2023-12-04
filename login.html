@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+    </head>
+<body>
+    <p>email:</p>
+    <br>
+    <input type ="text" id="mail">
+    <br>
+    <p>password:</p>
+    <input type="text" id="password">
+    <input type="button" value = "invia" onclick="passCheck()">
+    <p id="error3"></p>
+
+
+    <script>
+        function emailCheck(){
+            var email = document.getElementById("mail").value;
+        }
+
+        function passCheck(){
+            var pass = document.getElementById("password").value;
+            var error = document.getElementById("error3");
+            let pattern1 = /^[a-z][6-16]/g;
+            let pattern2;
+            if(pattern1.test(pass) == false){
+                error.innerHTML = "La password deve contenere ";
+            }else{
+                error.innerHTML = "ok";
+            }
+        }
+
+    </script>
+</body>
+</html>

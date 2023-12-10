@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+    </head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        .container{
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            display: inline-grid;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            width: 300px;
+            margin: auto;
+            border-radius: 20px;
+            
+            
+        }
+        .container label{
+            margin-top: 20px;
+            padding-left: 15%;
+
+        }
+        .container input{
+            width: 200px;
+            height: 20px;
+            margin: auto;
+
+        }
+        #enter{
+            width: 200px;
+            height: 20px; 
+        }
+        .avatar {
+            vertical-align: middle;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: auto;
+            margin-top: 50px;
+
+        }
+        .container p {
+            
+            padding-left: 15%;
+            margin: 5px;
+            font-size: 15px;
+        }
+    </style>
+<body>
+
+    <div class="container">
+        <img src="avatar.png" alt="Avatar" class="avatar">
+
+        <label for="mail"><b>Email:</b></label>
+        <input type ="text" id="mail" placeholder="Inserisci la email">
+        <label for="password"><b>Password</b></label>
+        <input type="text" id="password" placeholder="Inserisci la password">
+        <br>
+        <input type="button" value = "Login" onclick="passCheck()" id="enter">
+        <br>
+        <p id="error1"></p>
+        <p id="error2"></p>
+        <p id="error3"></p>
+        <p id="error4"></p>
+    </div>
+
+    <script>
+        function emailCheck(){
+            var email = document.getElementById("mail").value;
+        }
+
+        function passCheck(){
+            var pass = document.getElementById("password").value;
+
+            var error = document.getElementById("error1");
+            var error1 = document.getElementById("error2");
+            var error2 = document.getElementById("error3");
+            var error3 = document.getElementById("error4");
+
+
+
+            let pattern1 = /^.{6,12}$/; //il punto indica tutti i caratteri nella graffa da 6 a 18 caratteri
+            let pattern2 = /\d/; // controlla se c'è almeno un numero nella stringa
+            let pattern3 = /[!@#$%^&*()]/; //controlla se c'è almeno un carattere speciale
+            let pattern4 = /\s/ // per spazi bianchi
+
+            if(pattern1.test(pass)){
+                console.log("ok");
+            }else{
+                error.innerHTML = "&#x2022;La password deve contenere minimo 3 e massimo 10 caratteri.";
+            }
+            
+            if (pattern2.test(pass)){
+                console.log("ok");
+            }else {
+                error2.innerHTML = "&#x2022;La password deve contenere minimo 1 numero"; 
+            }
+
+            if(pattern3.test(pass)){
+                console.log("ok")
+            }else {
+                error3.innerHTML = "&#x2022;La password deve contenere almeno un carattere speciale tra questi '!@#$%^&*()' "; 
+            }
+            if(pattern4.test(pass)){
+                error4.innerHTML = "&#x2022;La password non può contenere spazi vuoti"; 
+            }else{
+                console.log("ok");
+            }
+        }
+
+    </script>
+</body>
+</html>

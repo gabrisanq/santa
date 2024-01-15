@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+
+    <p>cognome</p>
+    <input type="text" id="cognome1">
+
+    <p>nome</p>
+    <input type="text" id="nome1">
+
+    <button onclick="LocalSt()">Send</button>
+<script> 
+
+function LocalSt(){
+    var cognome= document.getElementById("cognome1").value;
+    var nome= document.getElementById("nome1").value;
+    var informazioniPersona = [nome, cognome];
+
+
+    if (typeof(Storage) !== "undefined") {
+        localStorage.setItem("dati", informazioniPersona);
+    }
+    else {
+        document.getElementById("stampa").innerHTML = "Il browser non supporta lo storage";
+    }
+    
+    document.location.href="pippe.html";
+
+}
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom</title>
+</head>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f5f5f5;
+    }
+
+    #container {
+        background-color: #fdfdfd;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        padding: 20px;
+        width: 300px;
+        text-align: center;
+    }
+
+    h1 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    input {
+        padding: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        padding: 8px 16px;
+        background-color: #9b0a05;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #da3b13;
+    }
+
+    #stampa {
+        margin-top: 20px;
+        font-weight: bold;
+        color: #333;
+    }
+</style>
+
+
+<body>
+    <div id="container">
+    <h1>Lista della spesa:</h1>
+    <p>Inserisci le cose da comprare.</p>
+    <input type="text" id="testo">
+    <br>
+    <div style="padding-top: 20px;">
+        <button onclick="s()">invia</button>
+        <button onclick="stampa()">stampa</button>
+        <p id="stampa"></p>
+    </div>
+</div>
+    <script>
+    var lista = [];
+    function s (){
+        var elemento = document.getElementById("testo").value;
+        lista.push(elemento);
+
+        document.getElementById("testo").value = '';
+
+        }
+
+        function stampa () {
+ 
+            localStorage.setItem("dati", lista);
+            document.location.href="printDom.html";
+          
+            }
+
+        
+
+        
+    </script>
+</body>
+</html>

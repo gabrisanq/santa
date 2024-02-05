@@ -18,28 +18,51 @@
         background-color: #f5f5f5;
     }
 
-    #infoPersona {
+    #contenitore {
         background-color: #fdfdfd;
         border: 2px solid #ddd;
         border-radius: 12px;
         padding: 20px;
         width: 300px;
+        text-align: left;
+    } h2{
         text-align: center;
+        color: #9b0a05;
     }
 
     #infoPersona p {
         color: #333;
         margin-bottom: 20px;
     }
+
 </style>
 
 <body>
-
-    <div id="infoPersona"></div>
+    <div id="contenitore">
+        <h2>Lista della spesa:</h2>
+        <br>
+        <div id="infoPersona"></div>
+    </div>
 
 
     <script>
-        document.getElementById("infoPersona").innerHTML = localStorage.getItem("dati");
+        //document.getElementById("infoPersona").innerHTML = localStorage.getItem("dati");
+
+        var lista = localStorage.getItem("dati");
+
+        var arrSpl = lista.split(",");
+
+        var out = "";
+        for(let i = 0; i<arrSpl.length; i++){
+            out += ((parseInt(i)+1)+". ");
+
+            out += arrSpl[i];
+            out += "<br>";
+        }
+
+        
+        document.getElementById("infoPersona").innerHTML = out;
+
     </script>
 </body>
 </html>

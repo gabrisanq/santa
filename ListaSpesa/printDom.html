@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chulo</title>
+</head>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f5f5f5;
+    }
+
+    #infoPersona {
+        background-color: #fdfdfd;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        padding: 20px;
+        width: 300px;
+        text-align: center;
+    }
+
+    #infoPersona p {
+        color: #333;
+        margin-bottom: 20px;
+
+        
+    }
+
+    #container {
+        background-color: #fdfdfd;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        padding: 20px;
+        width: 300px;
+        text-align: center;
+    }
+
+
+    .outPrint{
+        margin-bottom: 10px;
+        text-align: justify;
+    }
+
+    .bottDel{
+        color: #fff;
+        background-color: #9b0a05;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+</style>
+
+<body>
+
+    <!--<div id="infoPersona"></div>-->
+
+    <div id="contain">
+        <h1>Lista della spesa:</h1>
+        <div id="infoPersona"> </div>
+    </div>
+
+
+
+    <script>
+        let elementi = [];
+        //contiene valori passati dal localStorage
+let memoria = localStorage.getItem("lista");
+let memoriaArr = memoria.split(",");
+
+//ciclo che richiama l'eliminazione della riga
+for(let i = 0; i < memoriaArr.length; i++) {
+    rimuovi(memoriaArr[i]);
+}
+
+function rimuovi(articolo) {
+
+    document.getElementById("contain").style.display = "block";
+    var out = document.createElement("div");
+    out.classList.add("outPrint");
+    
+    
+    if(articolo != ""){
+
+        let imgButton = document.createElement("text");
+        imgButton.textContent = "-"
+        let buttonElement = document.createElement("button");
+        buttonElement.appendChild(imgButton);
+        buttonElement.classList.add("bottDel");
+        out.appendChild(buttonElement);
+        elementi.push(articolo);
+        let lista = document.createElement("text");
+        lista.textContent = articolo;
+        lista.classList.add("listaElemento");
+        out.appendChild(lista);
+        document.getElementById("infoPersona").appendChild(out);
+        
+        buttonElement.addEventListener("click", function() {
+            const index = elementi.indexOf(lista);
+            elementi.splice(index, 1);
+            document.getElementById("infoPersona").removeChild(out);
+        });
+
+
+
+    } else {}
+
+}
+
+
+    </script>
+</body>
+</html>

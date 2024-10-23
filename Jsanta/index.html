@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>File JSON Santarsiero</title>
+</head>
+<body onload="loadDoc()">
+
+    <script>
+        // Funzione per caricare il JSON
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    myFunction(this.responseText); // Passiamo il testo JSON alla funzione
+                }
+            };
+
+            xhttp.open("GET", "jsanta.json", true);
+            xhttp.send();
+        }
+
+        // Funzione per creare la tabella dai dati JSON
+        function myFunction(response) {
+            var i;
+            var data = JSON.parse(response); // Parsing del testo JSON
+            var table = "<tr><th>Nome</th><th>Cognome</th><th>Età</th><th>Indirizzo</th><th>Città</th><th>Telefono Casa</th><th>Telefono Ufficio</th><th>Sport</th></tr>";
+
+            // Iteriamo sugli oggetti "nomi"
+            for (i = 0; i < data.nomi.length; i++) {
+
+                // Aggiunta dei dati nella tabella
+                table += "<tr><td>" +
+                    data.nomi[i].nome + "</td><td>" +
+                    data.nomi[i].cognome + "</td><td>" +
+                    data.nomi[i].eta + "</td><td>" +
+                    data.nomi[i].indirizzo + "</td><td>" +
+                    data.nomi[i].citta + "</td><td>"
+            }
+
+            document.getElementById("anagraf").innerHTML = table;
+        }
+    </script>
+
+    <table id="anagraf"></table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+    "nomi":[
+        {
+            "nome": "davide",
+            "cognome":"raino",
+            "eta" : "23",
+            "indirizzo": "via montebello 3",
+            "citta": "casnago",
+            "telfoni" : [
+                {
+                    "casa":"444323242",
+                    "ufficio":"4323424"
+                }
+            ],
+            "sport": ["","",""]
+    },
+    {
+        "nome": "davide",
+        "cognome":"raino",
+        "eta" : "23",
+        "indirizzo": "via montebello 3",
+        "citta": "casnago",
+        "telfoni" : ["telefono1","telefono2","telefono3"],
+        "sport": ["","",""]
+}
+    ]
+}
+

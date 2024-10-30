@@ -1,0 +1,23 @@
+{
+    "nomi":[
+        {
+            "nome": "davide",
+            "cognome":"raino",
+            "eta" : "23",
+            "indirizzo": "via sgorbio 3",
+            "citta": "lampugnano",
+            "telfoni" : "3345564",
+            "sport": ""
+    },
+    {
+        "nome": "Alviero",
+        "cognome":"Martini",
+        "eta" : "23",
+        "indirizzo": "via montebello 3",
+        "citta": "casnago",
+        "telfoni" : "ddd3244",
+        "sport": "424242443"
+}
+    ]
+}
+

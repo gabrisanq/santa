@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>XML santarsiero</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+
+	<body>
+		<h1>LISTA JSON</h1>
+		<table border="1">
+			<tr>
+				<th>Nome</th>
+				<th>Cognome</th>
+				<th>Eta</th>
+				<th>Indirizzo</th>
+				<th>Citta</th>
+				<th>Telefoni</th>
+				<th>Sport</th>
+			</tr>
+			<tbody id="demo"></tbody>
+			<script>
+
+				var stampa = "";
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.open("GET", "jsanta.json", true);
+				xmlhttp.send();
+				xmlhttp.onreadystatechange = function () {
+					if (this.readyState == 4 && this.status == 200) {
+						var myObj = JSON.parse(this.responseText);
+						for (var x = 0; x < myObj.nomi.length; x++) {
+							stampa += "<tr><td>" + myObj.nomi[x].nome + "</td>" + "<td>" + myObj.nomi[x].cognome + "</td>" + "<td>" + myObj.nomi[x].eta + "</td>" + "<td>" + myObj.nomi[x].indirizzo + "</td>" + "<td>" + myObj.nomi[x].citta + "</td>" + "<td>" + myObj.nomi[x].telfoni + "</td>" + "<td>" + myObj.nomi[x].sport + "</td></tr>";
+						}
+						document.getElementById("demo").innerHTML = stampa;
+
+					}
+				};
+			</script>
+
+
+		</table>
+	</body>
+
+</html>

@@ -26,6 +26,15 @@
         "citta": "casnago",
         "telfoni" : "ddd3244",
         "foto" : ""
+},
+            {
+        "nome": "Anna",
+        "cognome":"rampoldi",
+        "eta" : "39",
+        "indirizzo": "via ",
+        "citta": "monte e cola",
+        "telfoni" : "334 423 3433",
+        "foto" : ""
 }
     ]
 }

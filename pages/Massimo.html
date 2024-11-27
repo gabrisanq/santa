@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Massimo Bonifico</title>
+    <link rel="stylesheet" href="cvstyle.css">
+</head>
+<body>
+    <div class="preambolo">
+        <img src="/fotos/MaxS.jpg" class="avatar" id="avatar">
+        <h1 id="nome"></h1>
+        <p class="desc" id="desc">Intraprendente e motivato a lavorare, capacità di teamworking, sveglio e fieramente lainatese</p>
+        <p><b>Telefono:</b> <span id="telefono">+39 123 456 7890</span></p> 
+        <p><b>Email:</b> <span id="email">mario.rossi@email.com</span></p> 
+    </div>
+    
+    <section id="info">
+        <div class="informazioni-personali">
+            <h2>Informazioni personali</h2>
+            <ul>
+                <li><p class="bold-text">Nome:</p> <span id="fullName"></span></li>
+                <li><p class="bold-text">Indirizzo:</p> <span id="indirizzo"></span></li>
+                <li><p class="bold-text">Data di nascita:</p> <span id="eta"></span></li>
+            </ul>
+        </div>
+        
+        <div class="esperienza-lavorativa">
+            <h2>Esperienza lavorativa</h2>
+            <ul id="esperienza-list">
+                <li>
+                    <h3 class="bold-text">Posizione:</h3> <span id="posizione"></span>
+                    <h4 class="bold-text">Descrizione:</h4> <span id="descrizione"></span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="istruzione">
+            <h2>Istruzione e formazione</h2>
+            <ul>
+                <li>
+                    <p class="bold-text">Qualifica:</p> <span id="qualifica"></span>
+                    <p class="bold-text">Università:</p> <span id="universita"></span>
+                    <p class="bold-text">Periodo:</p> <span id="periodo"></span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="competenze">
+            <h2>Competenze personali</h2>
+            <ul>
+                <li><p class="bold-text">Lingue:</p> <span id="lingue"></span></li>
+                <li><p class="bold-text">Competenze digitali:</p> <span id="digitali"></span></li>
+                <li><p class="bold-text">Altre competenze:</p> <span id="altre-competenze"></span></li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+
+function loadDoc() {
+            
+        }
+
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "/jsons/massimo.json", true);  
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState === 4 && xhttp.status === 200) {
+                const data = JSON.parse(xhttp.responseText); // Parsing 
+
+                document.getElementById('avatar').src = data.personali[0].foto;
+                document.getElementById('nome').textContent = data.personali[0].nome+" "+data.personali[0].cognome;
+                document.getElementById('desc').textContent = data.personali[0].descrizione; 
+                document.getElementById('telefono').textContent = data.personali[0].telefono;
+                document.getElementById('email').textContent = data.personali[0].email;
+                document.getElementById('fullName').textContent = data.personali[0].nome+" "+data.personali[0].cognome;
+                document.getElementById('indirizzo').textContent = data.personali[0].indirizzo;
+                document.getElementById('eta').textContent = data.personali[0].eta;
+
+                document.getElementById('posizione').textContent = data.esperienze[0].ES;
+                document.getElementById('descrizione').textContent = data.esperienze[0].descrizione;
+
+                document.getElementById('qualifica').textContent = data.istruzione[0].qualifica;
+                document.getElementById('universita').textContent = data.istruzione[0].uni;
+                document.getElementById('periodo').textContent = data.istruzione[0].periodo;
+
+                document.getElementById('lingue').textContent = data.competenze[0].lingue;
+                document.getElementById('digitali').textContent = data.competenze[0].digitali;
+                document.getElementById('altre-competenze').textContent = data.competenze[0].altro;
+            }
+        };
+        xhttp.send();  
+    </script>
+</body>
+</html>

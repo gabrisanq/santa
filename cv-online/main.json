@@ -7,7 +7,7 @@
             "eta" : "55",
             "indirizzo": "via campetto 1",
             "citta": "Lainate",
-            "foto":"/cv-online/fotos/MaxS.jpg"
+            "foto":"cv-online/fotos/MaxS.jpg"
     },
     {
         "nome": "Gibariele",
@@ -15,7 +15,7 @@
         "eta" : "12",
         "indirizzo": "via montebello 3",
         "citta": "Busto Arsizza",
-        "foto":"/cv-online/fotos/gibar.jpg"
+        "foto":"cv-online/fotos/gibar.jpg"
 },
 {
     "nome": "David",
@@ -23,7 +23,7 @@
     "eta" : "18",
     "indirizzo": "Residenza smeralda",
     "citta": "Busto Garolfo",
-    "foto":"/cv-online/fotos/stanci.jpg"
+    "foto":"cv-online/fotos/stanci.jpg"
 }
     ]
 }

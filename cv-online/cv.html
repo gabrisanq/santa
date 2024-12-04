@@ -63,7 +63,7 @@ console.log("ID selezionato: " + indice);
 
 // A questo punto devi usare l'ID per ottenere il file JSON corrispondente
 const xhttp = new XMLHttpRequest();
-let nomeFile = "/jsons/" + indice + ".json"; // Cambiamo il nome del file JSON in base all'ID
+let nomeFile = "https://github.com/gabrisanq/santa/blob/c019faf8e654be7a397dc41b3e03d1bcf3c61415/cv-online/jsons/" + indice + ".json"; // Cambiamo il nome del file JSON in base all'ID
 
 xhttp.open("GET", nomeFile, true);  // Usiamo il file JSON corrispondente all'ID
 xhttp.onreadystatechange = function() {

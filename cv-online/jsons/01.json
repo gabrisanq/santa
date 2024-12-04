@@ -1,0 +1,36 @@
+{
+    "personali":[
+        {
+            "nome": "Massimo",
+            "cognome":"Bonifico",
+            "eta" : "28/4/1974",
+            "indirizzo": "via campetto 1",
+            "telefono":"+39 334 556 2653",
+            "citta": "Lainate",
+            "foto":"/fotos/MaxS.jpg",
+            "descrizione":"Intraprendente e motivato a lavorare, capacità di teamworking, sveglio e fieramente lainatese",
+            "email":"massimo.bonifico@virgilio.it"
+
+    }
+    ],
+    "istruzione":[
+        {
+            "qualifica":"Ingegnere",
+            "uni":"Politecnico di Milano",
+            "periodo":"1990-1995"
+        }
+    ],
+    "esperienze":[
+        {
+            "ES":"Sviluppatore presso FANUC S.P.A",
+            "descrizione":"6 mesi di tirocinio presso la sede di fanuc italia a lainate"
+        }
+    ],
+    "competenze":[
+        {
+            "lingue":"Italiano (madrelingua), Inglese (avanzato)",
+            "digitali":"HTML, CSS, JavaScript, Python",
+            "altro":"Problem solving, teamwork"
+        }
+    ]
+}

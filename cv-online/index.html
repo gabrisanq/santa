@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CV 2.0</title>
+</head>
+<body onload="loadDoc()">
+
+  <h1 class="center">LISTA CURRICULUM VITAE</h1>
+
+    <script>
+        // Funzione per caricare il JSON
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    myFunction(this.responseText); // Passiamo il testo JSON alla funzione
+                }
+            };
+
+            xhttp.open("GET", "main.json", true);
+            xhttp.send();
+        }
+
+        // Funzione per creare la tabella dai dati JSON
+        function myFunction(response) {
+            var i;
+            var data = JSON.parse(response); // Parsing del testo JSON
+            var table = "<tr><th>Nome</th><th>Cognome</th><th>Età</th><th>Indirizzo</th><th>Città</th><th>Foto<tr></tr>";
+         
+
+            for (i = 0; i < data.nomi.length; i++) {
+
+                // Aggiunta dei dati nella tabella
+                table += "<tr><td>" +
+                    data.nomi[i].nome + "</td><td>" +
+                    data.nomi[i].cognome + "</td><td>" +
+                    data.nomi[i].eta + "</td><td>" +
+                    data.nomi[i].indirizzo + "</td><td>" +
+                    data.nomi[i].citta + "</td><td>" +
+             "<img src='" + data.nomi[i].foto + "' alt='Foto di " + data.nomi[i].nome +
+                    "' style='width:100px; height:100px;' class='cv-img' data-id='" + data.nomi[i].id + "'>" +
+                    "</td></tr>";
+            }
+
+ 
+            document.getElementById("anagraf").innerHTML = table;
+
+            // Aggiungiamo un evento di click per ogni immagine
+            var images = document.querySelectorAll('.cv-img');
+            images.forEach(function(image) {
+                image.addEventListener('click', function() {
+                    var id = image.getAttribute('data-id'); // Otteniamo l'id dell'immagine
+                    localStorage.setItem("id", id); // Salviamo l'ID nel localStorage
+                    window.open("cv.html", "_blank"); // Apriamo cv.html in una nuova scheda
+                });
+            });
+        }
+    </script>
+
+    <table id="anagraf"></table>
+</body>
+</html>

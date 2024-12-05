@@ -60,9 +60,9 @@
 let indice = localStorage.getItem("id"); 
         
 const xhttp = new XMLHttpRequest();
-let nomeFile = "jsons/" + indice + ".json"; // Cambiamo il nome del file JSON in base all'ID
+let nomeFile = "jsons/" + indice + ".json";
 
-xhttp.open("GET", nomeFile, true);  // Usiamo il file JSON corrispondente all'ID
+xhttp.open("GET", nomeFile, true); 
 xhttp.onreadystatechange = function() {
     if (xhttp.readyState === 4 && xhttp.status === 200) {
         const data = JSON.parse(xhttp.responseText); // Parsing del JSON

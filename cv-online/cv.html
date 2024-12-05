@@ -60,7 +60,7 @@
 let indice = localStorage.getItem("id"); 
         
 const xhttp = new XMLHttpRequest();
-let nomeFile = "jsons/" + indice + ".json";
+let nomeFile = "jsons/"+indice+".json";
 
 xhttp.open("GET", nomeFile, true); 
 xhttp.onreadystatechange = function() {

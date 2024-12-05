@@ -8,7 +8,7 @@
             "eta" : "55",
             "indirizzo": "via campetto 1",
             "citta": "Lainate",
-            "foto":"/fotos/MaxS.jpg"
+            "foto":"fotos/MaxS.jpg"
     },
     {
         "id":"02",
@@ -26,7 +26,7 @@
     "eta" : "18",
     "indirizzo": "Residenza smeralda",
     "citta": "Busto Garolfo",
-    "foto":"/fotos/stanci.jpg"
+    "foto":"fotos/stanci.jpg"
 }
     ]
 }
